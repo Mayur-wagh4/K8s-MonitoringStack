@@ -1,100 +1,86 @@
 # Observability-For-DevOps
 
-This repository provides a comprehensive observability stack tailored for DevOps engineers. It integrates key tools like Prometheus, Grafana, cAdvisor, and Node Exporter to monitor, visualize, and manage your infrastructure and applications. Additionally, it includes a custom Notes App to demonstrate the observability stack in action.
-
-![Docker + cAdvisor Stack](assets/docker.png)
-![NodeExporter Stack](assets/nodeexporter.png)
-
-## Table of Contents
-- [Overview](#overview)
-- [Tech Stack](#tech-stack)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Services](#services)
-- [Volumes](#volumes)
-- [Network](#network)
-- [Monitoring Setup](#monitoring-setup)
-- [Contributing](#contributing)
-- [License](#license)
-
 ## Overview
-In modern DevOps, observability is key to ensuring the health and performance of your applications and infrastructure. This repository sets up an observability stack that includes metrics collection, container monitoring, and real-time visualization.
+Observability-For-DevOps is a **comprehensive monitoring and observability solution** designed for **DevOps engineers** to gain deep insights into their infrastructure and applications. This stack integrates **Prometheus, Grafana, cAdvisor, and Node Exporter** for real-time data collection, visualization, and performance analysis.
 
-## Tech Stack
-- **Docker & Docker Compose**: Containerization and orchestration.
-- **Prometheus**: Metrics collection and monitoring.
-- **Grafana**: Data visualization and dashboard creation.
-- **cAdvisor**: Container resource monitoring.
-- **Node Exporter**: Hardware and OS metrics exporter.
-- **Notes App**: A custom service to demonstrate monitoring.
+Additionally, a **custom monitoring demo app** is included to showcase observability in action.
 
 ## Features
-- Real-time monitoring of container metrics with Prometheus.
-- Visualize metrics using Grafana dashboards.
-- Monitor hardware, OS metrics, and custom application performance.
-- Easily extendable for additional services and metrics.
-- Persistent data storage for Prometheus and Grafana.
+- **Real-time performance monitoring** of containers, servers, and applications.
+- **Pre-configured dashboards** in Grafana for instant visibility.
+- **Automated metrics collection** with Prometheus.
+- **Container resource tracking** using cAdvisor.
+- **Hardware and OS-level insights** via Node Exporter.
+- **Persistent data storage** for Prometheus and Grafana.
+
+## Tech Stack
+- **Docker & Docker Compose** → Containerized deployment
+- **Prometheus** → Time-series metrics collection
+- **Grafana** → Advanced visualization & dashboards
+- **cAdvisor** → Container-level resource monitoring
+- **Node Exporter** → OS and hardware monitoring
+- **Demo App** → Showcases the observability capabilities
 
 ## Installation
 
-1. **Clone the repository**:
-    ```bash
-    git clone https://github.com/Mayur-wagh4/K8s-MonitoringStack.git
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/Mayur-wagh4/K8s-MonitoringStack.git
+cd K8s-MonitoringStack
+```
 
-    cd K8s-MonitoringStack
+### 2️⃣ Install Docker & Docker Compose
+- [Docker Installation Guide](https://docs.docker.com/get-docker/)
+- [Docker Compose Installation Guide](https://docs.docker.com/compose/install/)
 
-    ```
-
-2. **Ensure Docker and Docker Compose are installed**:
-    - [Docker Installation Guide](https://docs.docker.com/get-docker/)
-    - [Docker Compose Installation Guide](https://docs.docker.com/compose/install/)
-
-3. **Download Prometheus config file**:
-    ```bash
-    wget https://raw.githubusercontent.com/prometheus/prometheus/main/documentation/examples/prometheus.yml
-    ```
-    
-4. **Run the stack**:
-    ```bash
-    docker compose up -d
-    ```
+### 3️⃣ Deploy the Monitoring Stack
+```bash
+docker compose up -d
+```
 
 ## Usage
-
-- Access **Grafana** at `http://localhost:3000`
-  - Default credentials: `admin` / `admin` (you'll be prompted to change this)
-- Access **Prometheus** at `http://localhost:9090`
-- Access **cAdvisor** at `http://localhost:8080`
-- **Node Exporter** metrics will be available at `http://localhost:9100/metrics`
-- Access **Notes App** at `http://localhost:8000`
+- **Grafana Dashboard** → [http://localhost:3000](http://localhost:3000)
+  - Default credentials: `admin` / `admin`
+- **Prometheus UI** → [http://localhost:9090](http://localhost:9090)
+- **cAdvisor Metrics** → [http://localhost:8080](http://localhost:8080)
+- **Node Exporter Metrics** → [http://localhost:9100/metrics]
+- **Demo Monitoring App** → [http://localhost:8000]
 
 ## Services
+- **Prometheus** → Stores and manages time-series metrics
+- **Grafana** → Provides visualization and dashboards
+- **cAdvisor** → Collects container performance metrics
+- **Node Exporter** → Exposes system-level metrics
+- **Demo App** → Simulates real-world observability use cases
 
-- **Grafana**: Visualization tool for Prometheus data.
-- **Prometheus**: Collects and stores metrics.
-- **Node Exporter**: Exports hardware and OS-level metrics.
-- **cAdvisor**: Provides container resource usage and performance metrics.
-- **Notes App**: Sample application to demonstrate monitoring.
+## Persistent Data Storage
+- `prometheus_data` → Stores Prometheus metrics persistently.
+- `grafana_data` → Stores Grafana dashboards & configurations.
 
-## Volumes
+## Networking
+- **monitoring-network** → Isolated network for secure service communication.
 
-- `prometheus_data`: Stores Prometheus data persistently.
-- `grafana_data`: Stores Grafana dashboards and data persistently.
-
-## Network
-
-- **monitoring**: Custom bridge network to ensure isolation and communication between services.
-
-## Monitoring Setup
-
-- **Grafana Dashboards**: Pre-configured to visualize data from Prometheus.
-- **Prometheus Configuration**: Configured to scrape metrics from Node Exporter, cAdvisor, and Notes App.
+## Troubleshooting
+🔹 **Check logs if a service fails to start:**
+```bash
+docker logs <container_name>
+```
+🔹 **Restart a service:**
+```bash
+docker restart <container_name>
+```
+🔹 **Check running containers:**
+```bash
+docker ps
+```
+🔹 **Verify Prometheus targets:**
+```bash
+curl http://localhost:9090/api/v1/targets
+```
 
 ## Contributing
-
-Contributions are welcome! Please submit a pull request or open an issue for any changes or improvements.
+Contributions are welcome! Feel free to **submit a pull request** or **open an issue** to enhance this project.
 
 ## License
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
