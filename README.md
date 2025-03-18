@@ -1,9 +1,10 @@
-# Observability-For-DevOps
+DevOps Observability Suite
 
-## Overview
-Observability-For-DevOps is a **comprehensive monitoring and observability solution** designed for **DevOps engineers** to gain deep insights into their infrastructure and applications. This stack integrates **Prometheus, Grafana, cAdvisor, and Node Exporter** for real-time data collection, visualization, and performance analysis.
+Overview
 
-Additionally, a **custom monitoring demo app** is included to showcase observability in action.
+Observability-For-DevOps is a comprehensive monitoring and observability solution designed for DevOps engineers to gain deep insights into their infrastructure and applications. This stack integrates Prometheus, Grafana, cAdvisor, and Node Exporter for real-time data collection, visualization, and performance analysis.
+
+Additionally, a custom monitoring demo app is included to showcase observability in action.
 
 ## Features
 - **Real-time performance monitoring** of containers, servers, and applications.
